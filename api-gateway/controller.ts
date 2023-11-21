@@ -1,32 +1,27 @@
 const axios = require("axios");
+const movies = [
+  { id: 1, title: "Film 1" },
+  { id: 2, title: "Film 2" },
+  { id: 3, title: "Film 2" },
+];
 
 module.exports = class Controller {
   // Récupère les détails d'un film spécifique par son ID
-  static getMovie(id) {
+  static getMovie(id: any) {
     return axios.get(`http://localhost:8001/movies/${id}`);
   }
 
   // Récupère une session spécifique par son ID
-  getSession(id) {
-    return axios
-      .get(`http://localhost:8001/sessions/${id}`)
-      .then((response) => response.data)
-      .catch((error) => {
-        console.error("Error fetching session:", error);
-        throw error; // ou gérer l'erreur comme souhaité
-      });
+  static getSession(id: any) {
+    return axios.get(`http://localhost:8001/sessions/${id}`);
   }
 
   // Récupère les détails d'une session spécifique par son ID
-  getSessionDetail(id) {
-    return axios
-      .get(`http://localhost:8001/sessionDetails/${id}`)
-      .then((response) => response.data)
-      .catch((error) => {
-        console.error("Error fetching session detail:", error);
-        throw error; // ou gérer l'erreur comme souhaité
-      });
+  static getSessionDetail(id: any) {
+    return axios.get(`http://localhost:8001/sessionDetails/${id}`);
   }
 
-  // Vous pouvez ajouter d'autres méthodes ici
+  static getData(id: number) {
+    return movies.find((m) => m.id == id);
+  }
 };
