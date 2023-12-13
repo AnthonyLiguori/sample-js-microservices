@@ -3,19 +3,15 @@ const axios = require("axios");
 const movies = [
     { id: 1, title: "Film 1" },
     { id: 2, title: "Film 2" },
-    { id: 3, title: "Film 2" },
+    { id: 3, title: "Film 3" },
 ];
 module.exports = class Controller {
-    // Récupère les détails d'un film spécifique par son ID
-    static getMovie(id) {
-        return axios.get(`http://localhost:8001/movies/${id}`);
-    }
     // Récupère une session spécifique par son ID
-    static getSession(id) {
+    static getMovieCatalogue(id) {
         return axios.get(`http://localhost:8001/sessions/${id}`);
     }
     // Récupère les détails d'une session spécifique par son ID
-    static getSessionDetail(id) {
+    static getJeuxCatalogue(id) {
         return axios.get(`http://localhost:8001/sessionDetails/${id}`);
     }
     static getData(id) {
